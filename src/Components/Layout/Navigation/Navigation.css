@@ -1,0 +1,27 @@
+ul{
+    list-style: none;
+    /* border: 1px solid red; */
+    /* text-align: left; */
+    /* padding: 10px; */
+}
+
+ul li {
+    text-align: center;
+    display: inline-block;
+    /* border: 1px solid; */
+    margin: 2px;
+    padding: 0 3px;
+}
+
+ul li:hover {
+    background-color: #bebdbd;
+}
+
+.Links {
+    text-decoration: none;
+    color: black;
+}
+
+.active {
+    text-decoration: underline;
+}
