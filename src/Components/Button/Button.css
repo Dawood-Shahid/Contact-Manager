@@ -1,0 +1,40 @@
+.Button {
+    background-color: transparent;
+    border: 1px solid;
+    border-radius: 3px;
+    color: #5c5b5b;
+    outline: none;
+    cursor: pointer;
+    font-size: 13px;
+    margin: 0 3px;
+    padding: 2px 0;
+}
+
+.Small {
+    width: 70px;
+}
+
+.Large {
+    width: 100%;
+
+}
+
+.Button:hover {
+    background-color: #d1d1d1;
+}
+
+.Success {
+    color: #282f1c;
+}
+
+.Success:hover {
+    background-color: #9cd637;
+}
+
+.Danger {
+    color: #5d1313;
+}
+
+.Danger:hover {
+    background-color: #f1a6a3;
+}

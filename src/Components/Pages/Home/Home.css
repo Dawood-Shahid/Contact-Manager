@@ -1,0 +1,15 @@
+.Container {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    justify-content: space-between;
+}
+
+.FormContainer {
+    border: 1px solid;
+    margin: 5px;
+}
+
+.ContactContainer {
+    /* border: 1px solid; */
+    margin: 5px;
+}

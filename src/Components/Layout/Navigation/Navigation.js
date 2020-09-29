@@ -5,7 +5,7 @@ import './Navigation.css'
 const navigation = () => {
     return (
         <Fragment>
-            <ul>
+            <ul className='NavList'>
                 <li>
                     <NavLink className='Links' exact to='/' >Home</NavLink>
                 </li>

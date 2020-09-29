@@ -4,7 +4,7 @@ import './Logo.css'
 const logo = () => {
     return (
         <Fragment>
-            <h1><i className="fas fa-book-reader" /><span>Contact </span>Managet</h1>
+            <h1><i className="fas fa-book-reader Logo" /><span className='LogoSpan'>Contact </span>Managet</h1>
         </Fragment>
     )
 }
