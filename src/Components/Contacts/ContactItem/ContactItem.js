@@ -1,16 +1,22 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Button from '../../Button/Button';
+import ContactContext from '../../../Context/Contact/contactContext';
 import './ContactItem.css';
 
 const ContactItem = ({ contact }) => {
+    const contactContext = useContext(ContactContext);
     const { id, name, email, phone, type } = contact;
+
+    const onDelete = () => {
+        contactContext.deleteContact(id);
+    };
 
     return (
         <div className='Item'>
             <h3 style={{ color: 'blue' }}>
                 {name}
                 <span className={'TypeSpan ' + (type === 'professional' ? 'Professional' : 'Prosonal')} >
-                    {type}
+                    {type.charAt(0).toUpperCase() + type.slice(1)}
                 </span>
             </h3>
             <ul className='ItemList'>
@@ -22,7 +28,7 @@ const ContactItem = ({ contact }) => {
                 </li>)}
             </ul>
             <Button btnType='Success Small' >Edit</Button>
-            <Button btnType='Danger Small' >Delete</Button>
+            <Button btnType='Danger Small' clicked={onDelete} >Delete</Button>
             {/* <Button btnType='Large' >Test</Button> */}
         </div>
     );
