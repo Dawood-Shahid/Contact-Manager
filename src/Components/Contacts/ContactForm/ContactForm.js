@@ -1,11 +1,25 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import Button from '../../Button/Button';
 import ContactContext from '../../../Context/Contact/contactContext';
 import './ContactForm.css';
 
 const ContactForm = () => {
     const contactContext = useContext(ContactContext);
-    const { addContact, updeateContact, clearCurrent, current } = contactContext;
+    const { addContact, updateContact, clearCurrent, current } = contactContext;
+
+    useEffect(() => {
+        if (current !== null) {
+            setContact(current);
+        }
+        else {
+            setContact({
+                name: '',
+                email: '',
+                phone: '',
+                type: 'personal' 
+            })
+        }
+    }, [current]);
 
     const [contact, setContact] = useState({
         name: '',
@@ -26,7 +40,7 @@ const ContactForm = () => {
             addContact(contact);
         }
         else {
-            setContact(current);
+            updateContact(contact);
         }
         clearCurrent();
     };

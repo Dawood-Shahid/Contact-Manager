@@ -5,12 +5,13 @@ import './ContactItem.css';
 
 const ContactItem = ({ contact }) => {
     const contactContext = useContext(ContactContext);
-    const { deleteContact, setCurrent } = contactContext;
+    const { deleteContact, setCurrent, clearCurrent } = contactContext;
 
     const { id, name, email, phone, type } = contact;
 
     const onDelete = () => {
         deleteContact(id);
+        clearCurrent();
     };
 
     const onEdit = () => {
