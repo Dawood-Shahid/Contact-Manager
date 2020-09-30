@@ -5,6 +5,8 @@ import './ContactForm.css';
 
 const ContactForm = () => {
     const contactContext = useContext(ContactContext);
+    const { addContact, updeateContact, clearCurrent, current } = contactContext;
+
     const [contact, setContact] = useState({
         name: '',
         email: '',
@@ -20,18 +22,22 @@ const ContactForm = () => {
 
     const onSubmit = e => {
         e.preventDefault();
-        contactContext.addContact(contact);
-        setContact({
-            name: '',
-            email: '',
-            phone: '',
-            type: 'personal'
-        });
+        if (current === null) {
+            addContact(contact);
+        }
+        else {
+            setContact(current);
+        }
+        clearCurrent();
+    };
+
+    const onClear = () => {
+        clearCurrent();
     };
 
     return (
         <form className='FormContent'>
-            <h2>Add Contact</h2>
+            <h2>{current ? 'Update Contact' : 'Add Contact'}</h2>
             <input
                 type='text'
                 name='name'
@@ -77,7 +83,10 @@ const ContactForm = () => {
                     /> Professional
                 </label>
             </div>
-            <Button btnType='Large' clicked={onSubmit}>Add</Button>
+            <Button btnType='Large Primary' clicked={onSubmit}>{current ? 'Update' : 'Add'}</Button>
+            {current &&
+                <Button btnType='Large' clicked={onClear}>Clear</Button>
+            }
         </form>
     );
 };

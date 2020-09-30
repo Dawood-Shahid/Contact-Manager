@@ -24,6 +24,14 @@
     background-color: #d1d1d1;
 }
 
+.Primary {
+    color: rgb(0, 0, 255);
+}
+
+.Primary:hover {
+    background-color: #99badd;
+}
+
 .Success {
     color: #282f1c;
 }

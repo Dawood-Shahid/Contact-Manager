@@ -9,8 +9,9 @@
     text-align: center;
     display: inline-block;
     /* border: 1px solid; */
+    border-radius: 4px;
     margin: 2px;
-    padding: 0 3px;
+    padding: 0 5px 2px 5px;
 }
 
 .NavList li:hover {

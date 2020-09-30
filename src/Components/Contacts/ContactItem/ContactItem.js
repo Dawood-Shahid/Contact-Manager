@@ -5,10 +5,16 @@ import './ContactItem.css';
 
 const ContactItem = ({ contact }) => {
     const contactContext = useContext(ContactContext);
+    const { deleteContact, setCurrent } = contactContext;
+
     const { id, name, email, phone, type } = contact;
 
     const onDelete = () => {
-        contactContext.deleteContact(id);
+        deleteContact(id);
+    };
+
+    const onEdit = () => {
+        setCurrent(contact);
     };
 
     return (
@@ -27,7 +33,7 @@ const ContactItem = ({ contact }) => {
                     <i className="fas fa-phone-square-alt Icon" />{phone}
                 </li>)}
             </ul>
-            <Button btnType='Success Small' >Edit</Button>
+            <Button btnType='Success Small' clicked={onEdit} >Edit</Button>
             <Button btnType='Danger Small' clicked={onDelete} >Delete</Button>
             {/* <Button btnType='Large' >Test</Button> */}
         </div>
