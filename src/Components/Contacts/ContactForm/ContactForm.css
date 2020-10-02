@@ -1,31 +1,21 @@
-.FormContent {
-    border: 0.5px solid #c7c6c6;
-    border-radius: 5px;
-    margin: 8px 10px;
-    padding: 10px 15px;
-    display: flex;
-    flex-direction: column;
-    background-color: whitesmoke;
+.ContentForm {
+  border: 0.5px solid #c7c6c6;
+  border-radius: 5px;
+  margin: 8px 10px;
+  padding: 10px 15px;
+  display: flex;
+  flex-direction: column;
+  background-color: whitesmoke;
 }
 
-.FormContent > h2 {
-    text-align: center;
-    font-weight: bold;
-    color: blue;
-    border: none;
+.ContentForm > h2 {
+  text-align: center;
+  font-weight: bold;
+  color: blue;
+  border: none;
 }
 
-.FormContent > * {
-    width: 100%;
-    margin: 2px 0;
-    padding: 2px 6px;
-    /* border-radius: 2px; */
-    outline-width: thin;
-    outline-color: #99badd;
-}
+.ContentForm > * {
+  margin: 2px 0;
+} 
 
-.radioLabel {
-    cursor: pointer;
-    padding: 0 5px;
-    font-size: 13px;
-}

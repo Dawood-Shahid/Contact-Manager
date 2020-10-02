@@ -17,45 +17,31 @@ const ContactState = props => {
         contacts: [
             {
                 id: 1,
-                name: "abc",
-                email: "abc@gmail.com",
+                name: "Azeem Shahid",
+                email: "azeem@gmail.com",
                 phone: "1111",
                 type: "personal"
             },
             {
                 id: 2,
-                name: "xyz",
-                email: "xyz@gmail.com",
+                name: "Azmeen",
+                email: "azmeen@gmail.com",
                 phone: "2222",
                 type: "professional"
             },
-            // {
-            //     id: 3,
-            //     name: "pqr",
-            //     email: "pqr@gmail.com",
-            //     phone: "3333",
-            //     type: "personal"
-            // },
-            // {
-            //     id: 4,
-            //     name: "abc",
-            //     email: "abc@gmail.com",
-            //     phone: "1111",
-            //     type: "personal"
-            // },
             {
-                id: 5,
-                name: "pqr",
+                id: 3,
+                name: "Naim Shahid",
                 email: "pqr@gmail.com",
                 phone: "3333",
                 type: "personal"
             },
             {
-                id: 6,
-                name: "Dawood",
+                id: 4,
+                name: "Dawood Shahid",
                 email: "dawood@gmail.com",
                 phone: "4444",
-                type: "personal"
+                type: "professional"
             }
         ],
         current: null,
