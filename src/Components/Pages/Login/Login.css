@@ -1,23 +1,29 @@
-.ContentForm {
+.LoginForm {
+  width: 60%;
   border: 0.5px solid #c7c6c6;
   border-radius: 5px;
   margin: 8px 10px;
-  padding: 10px 15px;
+  padding: 10px 20px;
   display: flex;
   flex-direction: column;
   background-color: whitesmoke;
 }
 
-.ContentForm > h2 {
+.LoginForm > h2 {
   text-align: center;
   font-weight: bold;
+  /* color: blue; */
   border: none;
 }
 
-.ContentForm > * {
-  margin: 2px 0;
+.LoginForm > * {
+  margin: 5px 0;
 }
 
-.ContactSpan {
+.LoginForm > Button {
+  margin: 25px 0;
+}
+
+.LoginSpan {
   color: blue;
 }

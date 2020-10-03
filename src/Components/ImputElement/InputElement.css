@@ -10,12 +10,13 @@
 
 .Label {
     display: block;
+    line-height: 15px;
 }
 
 
-.radioLabel {
+.RadioLabel {
     cursor: pointer;
-    /* display: inline-block; */
+    /* display: inline; */
     padding: 0 5px;
     font-size: 13px;
     line-height: 28px;

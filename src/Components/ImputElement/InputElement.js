@@ -18,6 +18,32 @@ const Input = (props) => {
                 />
             </Fragment>;
             break;
+        case ('email'):
+            inputElement = <Fragment>
+                <label className='Label' > {props.label} </label>
+                <input
+                    name={props.name}
+                    className='InputField'
+                    autoComplete='off'
+                    {...props.elementConfig}
+                    value={props.value}
+                    onChange={props.changed}
+                />
+            </Fragment>;
+            break;
+        case ('password'):
+            inputElement = <Fragment>
+                <label className='Label' > {props.label} </label>
+                <input
+                    name={props.name}
+                    className='InputField'
+                    autoComplete='off'
+                    {...props.elementConfig}
+                    value={props.value}
+                    onChange={props.changed}
+                />
+            </Fragment>;
+            break;
         // case ('textarea'):
         //     inputElement = <textarea
         //         className='InputField'
@@ -41,7 +67,7 @@ const Input = (props) => {
         //     break;
         case ('radio'):
             inputElement = <Fragment>
-                <label className='radioLabel'>
+                <label className='RadioLabel'>
                     <input
                         name={props.name}
                         autoComplete='off'

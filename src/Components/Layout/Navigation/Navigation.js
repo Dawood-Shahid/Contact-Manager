@@ -12,6 +12,12 @@ const navigation = () => {
                 <li>
                     <NavLink className='Links' to='/about' >About</NavLink>
                 </li>
+                <li>
+                    <NavLink className='Links' to='/login' >Login</NavLink>
+                </li>
+                <li>
+                    <NavLink className='Links' to='/register' >Register</NavLink>
+                </li>
             </ul>
         </Fragment>
     )

@@ -259,7 +259,8 @@ const ContactForm = () => {
 
     return (
         <form className='ContentForm'>
-            <h2>{current ? 'Update Contact' : 'Add Contact'}</h2>
+            <h2>{current ? 'Update ' :
+                'Add ' } <span className='ContactSpan'>Contact</span></h2>
             {inputArray.map(details => (
                 <Input
                     key={details.id}
