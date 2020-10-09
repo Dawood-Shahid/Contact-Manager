@@ -1,9 +1,29 @@
-import React, { useState } from 'react';
-import Input from '../../ImputElement/InputElement';
-import Button from '../../Button/Button';
+import React, { useState, useContext, useEffect } from 'react';
+import Input from '../../UI/ImputElement/InputElement';
+import Button from '../../UI/Button/Button';
+import AlertContext from '../../../Context/Alert/alertContext';
+import AuthContext from '../../../Context/Auth/authContext';
 import './Register.css';
 
-const Registration = () => {
+const Registration = (props) => {
+    const alertContext = useContext(AlertContext);
+    const authContext = useContext(AuthContext);
+
+    const { setAlert } = alertContext;
+    const { register, error, clearErrors, isAuthenticated } = authContext;
+
+    useEffect(() => {
+        if (isAuthenticated) {
+            props.history.push('/')
+        }
+
+        if (error !== null) {
+            setAlert(error, 'danger');
+            clearErrors();
+        }
+        // eslint-disable-next-line
+    }, [error, isAuthenticated, props.history]);
+
     const initialState = {
         name: {
             elementType: 'input',
@@ -57,7 +77,23 @@ const Registration = () => {
 
     const onSubmit = e => {
         e.preventDefault();
-        console.log(`Registration Submit`)
+        if (user.name.value === '' || user.email.value === '' || user.password.value === '') {
+            setAlert('Enter all fields', 'danger');
+        }
+        else if (user.password.value !== user.password2.value) {
+            setAlert('Password does not match', 'danger');
+        }
+        else {
+            // console.log(`Registration Submit`);
+            const data = {
+                name: user.name.value,
+                email: user.email.value,
+                password: user.password.value
+            };
+            // console.log(data.email);
+            // console.log(data.password);
+            register(data);
+        }
     };
 
     const inputArray = [];

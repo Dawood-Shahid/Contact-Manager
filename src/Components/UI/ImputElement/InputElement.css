@@ -1,0 +1,23 @@
+.InputField {
+    width: 100%;
+    padding: 2px 6px;
+    outline-width: thin;
+    outline-color: #99badd;
+    border: 0.5px solid;
+    border-radius: 5px;
+    background-color: whitesmoke;
+}
+
+.Label {
+    display: block;
+    line-height: 15px;
+}
+
+
+.RadioLabel {
+    cursor: pointer;
+    /* display: inline; */
+    padding: 0 5px;
+    font-size: 13px;
+    line-height: 28px;
+}

@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react';
-import Button from '../../Button/Button';
+import Button from '../../UI/Button/Button';
 import ContactContext from '../../../Context/Contact/contactContext';
-import Input from '../../ImputElement/InputElement';
+import Input from '../../UI/ImputElement/InputElement';
 import './ContactForm.css';
 
 const ContactForm = () => {
@@ -64,7 +64,7 @@ const ContactForm = () => {
             for (const key in contact) {
                 const getState = { ...contact };
                 const getProperty = { ...getState[key] };
-                if (key == 'firstRadio' || key == 'secondRadio') {
+                if (key === 'firstRadio' || key === 'secondRadio') {
                     if (getProperty.value === current.type) {
                         getProperty.selected = current.type;
                         getState[key] = getProperty;
@@ -142,9 +142,9 @@ const ContactForm = () => {
     }, [current, contactContext]);
 
     const onChange = (e, keyName) => {
-        if (keyName == 'firstRadio' || keyName == 'secondRadio') {
+        if (keyName === 'firstRadio' || keyName === 'secondRadio') {
             let otherRadio = null;
-            if (keyName == 'firstRadio') {
+            if (keyName === 'firstRadio') {
                 otherRadio = 'secondRadio';
             }
             else {
@@ -179,7 +179,7 @@ const ContactForm = () => {
         e.preventDefault();
         const data = {};
         for (let key in contact) {
-            if (key == 'name' | key == 'email' | key == 'phone') {
+            if (key === 'name' | key === 'email' | key === 'phone') {
                 // console.log(`${key} > ${contact[key].value}`)
                 data[key] = contact[key].value;
             }
@@ -260,7 +260,7 @@ const ContactForm = () => {
     return (
         <form className='ContentForm'>
             <h2>{current ? 'Update ' :
-                'Add ' } <span className='ContactSpan'>Contact</span></h2>
+                'Add '} <span className='ContactSpan'>Contact</span></h2>
             {inputArray.map(details => (
                 <Input
                     key={details.id}

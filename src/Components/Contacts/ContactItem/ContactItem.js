@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import Button from '../../Button/Button';
+import Button from '../../UI/Button/Button';
 import ContactContext from '../../../Context/Contact/contactContext';
 import './ContactItem.css';
 

@@ -9,8 +9,8 @@ const Contacts = () => {
     return (
         <Fragment>
             {
-                contacts.length == 0 ?
-                    <h3 style={{textAlign:'center', marginTop:'15px'}}>Please add a contact...</h3> :
+                contacts.length === 0 ?
+                    <h3 style={{ textAlign: 'center', marginTop: '15px' }}>Please add a contact...</h3> :
                     filtered !== null ?
                         filtered.map(contact => <ContactItem key={contact.id} contact={contact} />) :
                         contacts.map(contact => <ContactItem key={contact.id} contact={contact} />)

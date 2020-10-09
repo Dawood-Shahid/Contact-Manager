@@ -14,7 +14,7 @@
     padding: 0 5px 2px 5px;
 }
 
-.NavList li:hover {
+.HoverEffact:hover {
     background-color: #bebdbd;
 }
 
