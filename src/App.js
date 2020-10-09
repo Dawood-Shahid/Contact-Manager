@@ -6,11 +6,10 @@ import About from './Components/Pages/About';
 import Register from './Components/Pages/Register/Register';
 import Login from './Components/Pages/Login/Login';
 import Alert from './Components/Layout/Alert/Alerts';
-
 import ContactState from './Context/Contact/ContactState';
 import AuthState from './Context/Auth/AuthState';
 import AlertState from './Context/Alert/AlertState';
-
+import PrivateRoute from './Components/Routeing/PrivateRoute';
 import './App.css';
 
 function App() {
@@ -23,10 +22,10 @@ function App() {
             <Alert />
             <div className='App'>
               <Switch>
-                <Route path='/' exact component={Home} />
                 <Route path='/about' component={About} />
                 <Route path='/register' component={Register} />
                 <Route path='/login' component={Login} />
+                <PrivateRoute path='/' exact component={Home} />
               </Switch>
             </div>
           </Router>

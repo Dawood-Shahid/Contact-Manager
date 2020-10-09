@@ -19,13 +19,17 @@ const AuthState = props => {
    
     const initialState = {
         userID: localStorage.getItem('userID'), // token is the uid of firebase
-        isAuthenticated: null,
+        isAuthenticated: false,
         loading: true,
         user: null,
         error: null
     };
 
     const [state, dispatch] = useReducer(AuthReducer, initialState);
+
+    // useEffect(() => {
+    //     localStorage.removeItem('userID');
+    // }, []);
  
     const loadUser = (ID) => {
         Axios.get('https://webmobilehybridapp.firebaseio.com/contact-manager/registered-users-data.json')

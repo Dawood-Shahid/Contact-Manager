@@ -9,10 +9,12 @@ const Navigation = () => {
     const { logout, isAuthenticated, user } = authContext;
 
     useEffect(() => {
-        // console.log(isAuthenticated)
-        // console.log(user)
 
     }, [isAuthenticated, user]);
+
+    const onLogout = () => {
+        logout();
+    }
 
     let links = null;
 
@@ -23,10 +25,10 @@ const Navigation = () => {
                     Hello <span className='UserSpan'>{user && user.name}</span>
                 </li>
                 <li className='HoverEffact'>
-                    <NavLink className='Links' to='/login' >
-                        <i class="fas fa-sign-out-alt ExitLogo"></i>
+                    <a className='Links' onClick={onLogout} >
+                        <i className="fas fa-sign-out-alt ExitLogo"></i>
                         Log out
-                    </NavLink>
+                    </a>
                 </li>
             </ul>
         );
