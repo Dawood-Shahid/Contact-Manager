@@ -26,10 +26,6 @@ const AuthState = props => {
     };
 
     const [state, dispatch] = useReducer(AuthReducer, initialState);
-
-    useEffect(() => {
-        localStorage.removeItem('userID');
-    }, []);
  
     const loadUser = (ID) => {
         Axios.get('https://webmobilehybridapp.firebaseio.com/contact-manager/registered-users-data.json')

@@ -26,3 +26,11 @@
 .active {
     text-decoration: underline;
 }
+
+.UserSpan {
+    color: blue;
+}
+
+.ExitLogo {
+    margin-right: 2px;
+}

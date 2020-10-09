@@ -20,10 +20,13 @@ const Navigation = () => {
         links = (
             <ul className='NavList'>
                 <li>
-                    Hello {user && user.name}
+                    Hello <span className='UserSpan'>{user && user.name}</span>
                 </li>
                 <li className='HoverEffact'>
-                    <NavLink className='Links' to='/login' >Log out</NavLink>
+                    <NavLink className='Links' to='/login' >
+                        <i class="fas fa-sign-out-alt ExitLogo"></i>
+                        Log out
+                    </NavLink>
                 </li>
             </ul>
         );
