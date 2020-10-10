@@ -28,6 +28,9 @@ const AuthState = props => {
     const [state, dispatch] = useReducer(AuthReducer, initialState);
 
     // useEffect(() => {
+    //     // console.log(`authState`)
+    //     // console.log(`------------------------`)
+    //     // loadUser(localStorage.getItem('userID'))
     //     localStorage.removeItem('userID');
     // }, []);
  
@@ -75,7 +78,7 @@ const AuthState = props => {
                 loadUser(res.user.uid);
             })  // return firebase user id (res.user.uid)
             .catch(err => {
-                console.log(err);
+                // console.log(err);
                 dispatch({ type: LOGIN_FAIL, payload: err.message });
             }); // return error message (err.message)
     };
@@ -83,6 +86,8 @@ const AuthState = props => {
     const logout = () => dispatch({ type: LOGINOUT });
 
     const clearErrors = () => dispatch({ type: CLEAR_ERRORS });
+
+    console.log(state.error)
 
 
     return (

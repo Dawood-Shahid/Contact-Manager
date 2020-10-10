@@ -17,10 +17,15 @@ const Registration = (props) => {
             props.history.push('/')
         }
 
-        if (error !== null) {
+        if (error == 'A network error (such as timeout, interrupted connection or unreachable host) has occurred.') {
+            setAlert('Network error.', 'danger');
+            clearErrors();
+        }
+        else if (error !== null){
             setAlert(error, 'danger');
             clearErrors();
         }
+
         // eslint-disable-next-line
     }, [error, isAuthenticated, props.history]);
 
@@ -79,9 +84,11 @@ const Registration = (props) => {
         e.preventDefault();
         if (user.name.value === '' || user.email.value === '' || user.password.value === '') {
             setAlert('Enter all fields', 'danger');
+            clearErrors();
         }
         else if (user.password.value !== user.password2.value) {
             setAlert('Password does not match', 'danger');
+            clearErrors();
         }
         else {
             // console.log(`Registration Submit`);

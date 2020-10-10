@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect, Fragment } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Input from '../../UI/ImputElement/InputElement';
 import Button from '../../UI/Button/Button';
@@ -30,8 +30,12 @@ const Login = (props) => {
             setAlert('Invalid email address entered.', 'danger');
             clearErrors();
         }
+        else if (error !== null) {
+            setAlert('Network error.', 'danger');
+            clearErrors();
+        }
         // eslint-disable-next-line
-    }, [error, isAuthenticated]);
+    }, [error, isAuthenticated, props.history]);
 
     const initialState = {
         email: {
@@ -93,7 +97,7 @@ const Login = (props) => {
     // console.log(inputArray);
 
     return (
-        <Fragment>
+        <div className='LoginFormContainer'>
             <form className='LoginForm'>
                 <h2>Account <span className='LoginSpan'>Login</span></h2>
                 {inputArray.map(details => (
@@ -108,9 +112,11 @@ const Login = (props) => {
                     />
                 ))}
                 <Button btnType='Large Primary' clicked={onSubmit}>Login</Button>
-                <Link className='SignUp' to='/register' >Sign up</Link>
             </form>
-        </Fragment>
+            <div className='SignUpContainer'>
+                <Link className='SignUp' to='/register' >Sign up</Link>
+            </div>
+        </div>
     );
 };
 

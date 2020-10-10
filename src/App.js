@@ -13,6 +13,7 @@ import PrivateRoute from './Components/Routeing/PrivateRoute';
 import './App.css';
 
 function App() {
+  
   return (
     <AuthState>
       <ContactState>
@@ -22,10 +23,10 @@ function App() {
             <Alert />
             <div className='App'>
               <Switch>
+                <PrivateRoute path='/' exact component={Home} />
+                <Route path='/login' component={Login} />
                 <Route path='/about' component={About} />
                 <Route path='/register' component={Register} />
-                <Route path='/login' component={Login} />
-                <PrivateRoute path='/' exact component={Home} />
               </Switch>
             </div>
           </Router>

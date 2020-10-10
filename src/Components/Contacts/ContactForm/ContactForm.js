@@ -1,12 +1,16 @@
 import React, { useState, useContext, useEffect } from 'react';
 import Button from '../../UI/Button/Button';
 import ContactContext from '../../../Context/Contact/contactContext';
+import AlertContext from '../../../Context/Alert/alertContext';
 import Input from '../../UI/ImputElement/InputElement';
 import './ContactForm.css';
 
 const ContactForm = () => {
     const contactContext = useContext(ContactContext);
+    const alertContext = useContext(AlertContext);
+    
     const { addContact, updateContact, clearCurrent, current } = contactContext;
+    const { setAlert, clearErrors } = alertContext;
 
     const initialState = {
         name: {
@@ -177,72 +181,80 @@ const ContactForm = () => {
 
     const onSubmit = e => {
         e.preventDefault();
-        const data = {};
-        for (let key in contact) {
-            if (key === 'name' | key === 'email' | key === 'phone') {
-                // console.log(`${key} > ${contact[key].value}`)
-                data[key] = contact[key].value;
-            }
-            else if (contact[key].selected !== '') {
-                // console.log(`type > ${contact[key].selected}`)
-                data['type'] = contact[key].selected;
-            }
-        }
-        if (current === null) {
-            addContact(data);
+        if (contact.name.value === '' || contact.email.value === '' || contact.phone.value === '') {
+            setAlert('Enter all fields', 'danger');
+            clearErrors();
+            // console.log(`Enter all fields`)
         }
         else {
-            data['id'] = current.id;
-            updateContact(data);
-        }
-        setContact({
-            name: {
-                elementType: 'input',
-                elementConfig: {
-                    type: 'text',
-                    placeholder: 'Name',
-                },
-                value: '',
-                label: ''
-            },
-            email: {
-                elementType: 'email',
-                elementConfig: {
-                    type: 'email',
-                    placeholder: 'Email',
-                },
-                value: '',
-                label: ''
-            },
-            phone: {
-                elementType: 'text',
-                elementConfig: {
-                    type: 'text',
-                    placeholder: 'Phone',
-                },
-                value: '',
-                label: ''
-            },
-            firstRadio: {
-                elementType: 'radio',
-                elementConfig: {
-                    type: 'radio',
-                },
-                label: 'Personal',
-                value: 'personal',
-                selected: 'personal'
-            },
-            secondRadio: {
-                elementType: 'radio',
-                elementConfig: {
-                    type: 'radio',
-                },
-                label: 'Professional',
-                value: 'professional',
-                selected: ''
+            // console.log(`All fields are entered`)
+            const data = {};
+            for (let key in contact) {
+                if (key === 'name' | key === 'email' | key === 'phone') {
+                    // console.log(`${key} > ${contact[key].value}`)
+                    data[key] = contact[key].value;
+                }
+                else if (contact[key].selected !== '') {
+                    // console.log(`type > ${contact[key].selected}`)
+                    data['type'] = contact[key].selected;
+                }
             }
-        });
-        clearCurrent();
+            if (current === null) {
+                addContact(data);
+            }
+            else {
+                data['id'] = current.id;
+                updateContact(data);
+            }
+            setContact({
+                name: {
+                    elementType: 'input',
+                    elementConfig: {
+                        type: 'text',
+                        placeholder: 'Name',
+                    },
+                    value: '',
+                    label: ''
+                },
+                email: {
+                    elementType: 'email',
+                    elementConfig: {
+                        type: 'email',
+                        placeholder: 'Email',
+                    },
+                    value: '',
+                    label: ''
+                },
+                phone: {
+                    elementType: 'text',
+                    elementConfig: {
+                        type: 'text',
+                        placeholder: 'Phone',
+                    },
+                    value: '',
+                    label: ''
+                },
+                firstRadio: {
+                    elementType: 'radio',
+                    elementConfig: {
+                        type: 'radio',
+                    },
+                    label: 'Personal',
+                    value: 'personal',
+                    selected: 'personal'
+                },
+                secondRadio: {
+                    elementType: 'radio',
+                    elementConfig: {
+                        type: 'radio',
+                    },
+                    label: 'Professional',
+                    value: 'professional',
+                    selected: ''
+                }
+            });
+            clearCurrent();
+        }
     };
 
     const onClear = () => {

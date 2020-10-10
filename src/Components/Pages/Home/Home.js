@@ -3,15 +3,19 @@ import Contact from '../../Contacts/Contact';
 import ContactForm from '../../Contacts/ContactForm/ContactForm';
 import SearchBar from '../../UI/SearchBar/SearchBar';
 import AuthContext from '../../../Context/Auth/authContext';
+import ContactContext from '../../../Context/Contact/contactContext';
 import './Home.css';
 
 const Home = () => {
     const authContext = useContext(AuthContext);
+    const contactContext = useContext(ContactContext);
 
     const { loadUser, userID } = authContext;
+    const { getContacts } = contactContext;
 
     useEffect(() => {
         loadUser(userID);
+        getContacts();
         // eslint-disable-next-line
     }, []);
 
