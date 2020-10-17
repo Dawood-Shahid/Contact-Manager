@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import { BrowserRouter as Router } from 'react-router-dom';
 
-const app = (
+const myApp = (
   <Router>
     <App />
   </Router>
@@ -11,7 +11,7 @@ const app = (
 
 ReactDOM.render(
   <React.StrictMode>
-    {app}
+    {myApp}
   </React.StrictMode >
   ,
   document.getElementById('root')
