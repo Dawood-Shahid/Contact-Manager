@@ -17,12 +17,13 @@ export default (state, action) => {
                 isAuthenticated: true,
                 loading: false,
                 user: action.payload
-            }
+            };
         case REGISTER_SUCCESS:
         case LOGIN_SUCCESS:
             // console.log(action.payload)
-            localStorage.removeItem('userID');
+            // localStorage.removeItem('userID');
             localStorage.setItem('userID', action.payload);
+            // localStorage.setItem('isAuthenticated', true);
             return {
                 ...state,
                 userID: action.payload,
@@ -34,6 +35,7 @@ export default (state, action) => {
         case LOGIN_FAIL:
         case LOGINOUT:
             localStorage.removeItem('userID');
+            // localStorage.setItem('isAuthenticated', false);
             return {
                 ...state,
                 ...action.payload,
@@ -46,7 +48,7 @@ export default (state, action) => {
             return {
                 ...state,
                 error: null
-            }
+            };
         default:
             return state;
     }

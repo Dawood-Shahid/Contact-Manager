@@ -7,22 +7,26 @@ import {
     SET_CURRENT,
     CLEAR_CURRENT,
     CLEAR_FILTER,
-    CONTACT_ERROR
+    CONTACT_ERROR,
+    CLEAR_CONTACTS
 } from '../Types';
 
 
 export default (state, action) => {
     switch (action.type) {
         case GET_CONTACTS:
+            // console.log('get contact', action.payload)
             return {
                 ...state,
                 // contacts: [...state.contacts, action.payload]
-                contacts: action.payload
+                contacts: action.payload,
+                loading:false
             };
         case ADD_CONTACT:
+            // console.log('add contact reducer ->', action.payload.type);
             return {
                 ...state,
-                contacts: [...state.contacts, action.payload]
+                contacts: [action.payload, ...state.contacts]
             };
         case UPDATE_CONTACT:
             return {
@@ -34,6 +38,15 @@ export default (state, action) => {
                 ...state,
                 contacts: state.contacts.filter(contact => contact.id !== action.payload)
             };
+        case CLEAR_CONTACTS:
+            return {
+                ...state,
+                contacts: [],
+                current: null,
+                filtered: null,
+                error: null,
+                loading: true
+            }
         case SET_CURRENT:
             return {
                 ...state,

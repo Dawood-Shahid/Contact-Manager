@@ -21,3 +21,13 @@
 .ContactSpan {
   color: blue;
 }
+
+@media (max-width: 425px) {
+  .ContentForm {
+    margin: 0 3px;
+  }
+
+  .ContentForm > h2 {
+   font-size: 22px;
+  }
+}

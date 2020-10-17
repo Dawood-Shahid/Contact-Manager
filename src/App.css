@@ -16,3 +16,18 @@
   margin: 10px auto;
   line-height: 36px;
 }
+
+@media(max-width: 768px) {
+  .App {
+    width: 768px;
+  }
+}
+
+@media(max-width: 425px) {
+  .App {
+    width: 100%;
+    padding: 0px;
+
+  }
+
+}

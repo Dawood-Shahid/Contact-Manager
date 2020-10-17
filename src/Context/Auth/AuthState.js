@@ -19,6 +19,7 @@ const AuthState = props => {
    
     const initialState = {
         userID: localStorage.getItem('userID'), // token is the uid of firebase
+        // isAuthenticated: localStorage.getItem('isAuthenticated'),
         isAuthenticated: false,
         loading: true,
         user: null,
@@ -32,6 +33,7 @@ const AuthState = props => {
     //     // console.log(`------------------------`)
     //     // loadUser(localStorage.getItem('userID'))
     //     localStorage.removeItem('userID');
+    //     // localStorage.setItem('isAuthenticated', false)
     // }, []);
  
     const loadUser = (ID) => {
@@ -48,6 +50,10 @@ const AuthState = props => {
                         // set functionality of user loaded in its reducer.
                     }
                 }
+            })
+            .catch(err => {
+                console.log(err)
+                dispatch({ type: AUTH_ERROR, payload: err.message });
             });
     };
 
@@ -78,7 +84,7 @@ const AuthState = props => {
                 loadUser(res.user.uid);
             })  // return firebase user id (res.user.uid)
             .catch(err => {
-                // console.log(err);
+                console.log(err.message);
                 dispatch({ type: LOGIN_FAIL, payload: err.message });
             }); // return error message (err.message)
     };
@@ -87,7 +93,7 @@ const AuthState = props => {
 
     const clearErrors = () => dispatch({ type: CLEAR_ERRORS });
 
-    console.log(state.error)
+    // console.log(state.error)
 
 
     return (

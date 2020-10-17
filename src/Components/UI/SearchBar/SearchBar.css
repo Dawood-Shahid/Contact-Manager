@@ -1,6 +1,13 @@
-.SearchFrom {
-    margin: 5px;
-    /* border: 1px solid; */
-    padding: 0 8px 0 2px;
+.SearchForm {
+  margin: 5px;
+  /* border: 1px solid; */
+  padding: 0 8px 0 2px;
 }
 
+@media (max-width: 425px) {
+  .SearchForm {
+    margin: 2px;
+    /* border: 1px solid; */
+    padding: 0 2px;
+  }
+}

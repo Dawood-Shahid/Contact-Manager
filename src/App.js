@@ -23,8 +23,8 @@ function App() {
             <Alert />
             <div className='App'>
               <Switch>
+                <Route path='/login' active component={Login} />
                 <PrivateRoute path='/' exact component={Home} />
-                <Route path='/login' component={Login} />
                 <Route path='/about' component={About} />
                 <Route path='/register' component={Register} />
               </Switch>

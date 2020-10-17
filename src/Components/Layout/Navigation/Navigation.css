@@ -1,37 +1,44 @@
 .NavList {
-    list-style: none;
-    /* border: 1px solid red; */
-    /* text-align: left; */
-    /* padding: 10px; */
+  list-style: none;
+  /* border: 1px solid red; */
+  /* text-align: left; */
+  /* padding: 10px; */
 }
 
 .NavList li {
-    text-align: center;
-    display: inline-block;
-    /* border: 1px solid; */
-    border-radius: 4px;
-    margin: 2px;
-    padding: 0 5px 2px 5px;
+  text-align: center;
+  display: inline-block;
+  /* border: 1px solid; */
+  border-radius: 4px;
+  margin: 2px;
+  padding: 0 5px 2px 5px;
 }
 
 .HoverEffact:hover {
-    background-color: #bebdbd;
+  background-color: #bebdbd;
 }
 
 .Links {
-    cursor: pointer;
-    text-decoration: none;
-    color: black;
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
 }
 
 .active {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .UserSpan {
-    color: blue;
+  color: blue;
 }
 
 .ExitLogo {
-    margin-right: 2px;
+  margin-right: 2px;
+}
+
+@media (max-width: 425px) {
+  .NavList {
+    width: 95%;
+    text-align: right;
+  }
 }

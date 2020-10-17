@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from 'react';
 import Button from '../../UI/Button/Button';
 import ContactContext from '../../../Context/Contact/contactContext';
 import AlertContext from '../../../Context/Alert/alertContext';
-import Input from '../../UI/ImputElement/InputElement';
+import Input from '../../UI/InputElement/InputElement';
 import './ContactForm.css';
 
 const ContactForm = () => {
@@ -200,6 +200,7 @@ const ContactForm = () => {
                 }
             }
             if (current === null) {
+                // console.log(data.type)
                 addContact(data);
             }
             else {

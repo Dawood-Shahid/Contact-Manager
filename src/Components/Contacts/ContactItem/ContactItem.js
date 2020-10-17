@@ -17,6 +17,7 @@ const ContactItem = ({ contact }) => {
     const onEdit = () => {
         setCurrent(contact);
     };
+    // console.log('contact item ->', type)
 
     return (
         <div className='Item'>
@@ -42,4 +43,3 @@ const ContactItem = ({ contact }) => {
 };
 
 export default ContactItem;
-{ }

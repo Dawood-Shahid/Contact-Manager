@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from 'react';
-import Input from '../../UI/ImputElement/InputElement';
+import Input from '../../UI/InputElement/InputElement';
 import Button from '../../UI/Button/Button';
 import AlertContext from '../../../Context/Alert/alertContext';
 import AuthContext from '../../../Context/Auth/authContext';
@@ -14,15 +14,23 @@ const Registration = (props) => {
 
     useEffect(() => {
         if (isAuthenticated) {
-            props.history.push('/')
+            props.history.push('/');
         }
 
         if (error == 'A network error (such as timeout, interrupted connection or unreachable host) has occurred.') {
             setAlert('Network error.', 'danger');
             clearErrors();
         }
-        else if (error !== null){
-            setAlert(error, 'danger');
+        else if (error == 'The email address is already in use by another account.') {
+            setAlert('The email address is already in use.', 'danger');
+            clearErrors();
+        }
+        else if (error == 'Password should be at least 6 characters') {
+            setAlert('Password should be at least 6 characters.', 'danger');
+            clearErrors();
+        }
+        else if (error == 'The email address is badly formatted.') {
+            setAlert('Invalid email address.', 'danger');
             clearErrors();
         }
 

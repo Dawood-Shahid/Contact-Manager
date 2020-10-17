@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import ContactContext from '../../../Context/Contact/contactContext';
-import Input from '../../UI/ImputElement/InputElement';
+import Input from '../InputElement/InputElement';
 import './SearchBar.css';
 
 const SearchBar = () => {
@@ -10,7 +10,7 @@ const SearchBar = () => {
             elementType: 'input',
             elementConfig: {
                 type: 'text',
-                placeholder: 'Filter Contacts......',   
+                placeholder: 'Filter Contacts......',
             },
             value: ''
         }
@@ -45,7 +45,7 @@ const SearchBar = () => {
     // console.log(inputArray.config)
 
     return (
-        <form className='SearchFrom'>
+        <form className='SearchForm'>
             {inputArray.map(details => (
                 <Input
                     key={details.id}
@@ -55,15 +55,6 @@ const SearchBar = () => {
                     value={details.config.value}
                     changed={onChange}
                 />
-                // <input
-                //     className='SearchInput'
-                //     key={details.id}
-                //     type='text'
-                //     placeholder={details.inputConfig.elementConfig.placeholder}
-                //     onChange={onChange}
-                //     autoComplete='off'
-                //     value={details.inputConfig.value}
-                // />
             ))}
         </form>
     );

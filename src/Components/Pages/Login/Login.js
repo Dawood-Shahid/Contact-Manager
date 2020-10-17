@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import Input from '../../UI/ImputElement/InputElement';
+import Input from '../../UI/InputElement/InputElement';
 import Button from '../../UI/Button/Button';
 import AlertContext from '../../../Context/Alert/alertContext';
 import AuthContext from '../../../Context/Auth/authContext';
@@ -30,10 +30,11 @@ const Login = (props) => {
             setAlert('Invalid email address entered.', 'danger');
             clearErrors();
         }
-        else if (error !== null) {
+        else if (error === 'A network error (such as timeout, interrupted connection or unreachable host) has occurred.') {
             setAlert('Network error.', 'danger');
             clearErrors();
         }
+
         // eslint-disable-next-line
     }, [error, isAuthenticated, props.history]);
 

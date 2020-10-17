@@ -1,12 +1,15 @@
 import React, { useContext, useEffect, useState, Fragment } from 'react';
 import { NavLink } from 'react-router-dom';
 import AuthContext from '../../../Context/Auth/authContext';
+import ContactContext from '../../../Context/Contact/contactContext';
 import './Navigation.css';
 
 const Navigation = () => {
     const authContext = useContext(AuthContext);
+    const contactContext = useContext(ContactContext)
 
     const { logout, isAuthenticated, user } = authContext;
+    const { clearContacts } = contactContext;
 
     useEffect(() => {
 
@@ -14,6 +17,7 @@ const Navigation = () => {
 
     const onLogout = () => {
         logout();
+        clearContacts();
     }
 
     let links = null;
