@@ -1,12 +1,13 @@
 import React, { useContext, useEffect, useState, Fragment } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import AuthContext from '../../../Context/Auth/authContext';
 import ContactContext from '../../../Context/Contact/contactContext';
 import './Navigation.css';
 
 const Navigation = () => {
     const authContext = useContext(AuthContext);
-    const contactContext = useContext(ContactContext)
+    const contactContext = useContext(ContactContext);
+    const currentURL = useLocation();
 
     const { logout, isAuthenticated, user } = authContext;
     const { clearContacts } = contactContext;
@@ -18,7 +19,7 @@ const Navigation = () => {
     const onLogout = () => {
         logout();
         clearContacts();
-    }
+    };
 
     let links = null;
 
@@ -41,10 +42,10 @@ const Navigation = () => {
         links = (
             <ul className='NavList'>
                 <li className='HoverEffact'>
-                    <NavLink className='Links' to='/login' >Login</NavLink>
+                    <NavLink className='Links' to='/Contact-Manager/login' >Login</NavLink>
                 </li>
                 <li className='HoverEffact'>
-                    <NavLink className='Links' to='/about' >About</NavLink>
+                    <NavLink className='Links' to='/Contact-Manager/about' >About</NavLink>
                 </li>
             </ul>
         );

@@ -15,7 +15,7 @@ const Login = (props) => {
 
     useEffect(() => {
         if (isAuthenticated) {
-            props.history.push('/');
+            props.history.push('/Contact-Manager/');
         }
 
         if (error === 'There is no user record corresponding to this identifier. The user may have been deleted.') {

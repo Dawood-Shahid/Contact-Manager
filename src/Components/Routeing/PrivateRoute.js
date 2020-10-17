@@ -13,7 +13,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
             render={props =>
                 (!isAuthenticated && !loading) ?
                     (
-                        <Redirect from='/' to='/login' />
+                        <Redirect from='/Contact-Manager/' to='/Contact-Manager/login' />
                     ) :
                     (
                         (userID !== null) ?
@@ -21,7 +21,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
                                 <Component {...props} />
                             ) :
                             (
-                                <Redirect from='/' to='/login' />
+                                <Redirect from='/Contact-Manager/' to='/Contact-Manager/login' />
                             )
                     )
             }
