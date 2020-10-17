@@ -115,7 +115,7 @@ const Login = (props) => {
                 <Button btnType='Large Primary' clicked={onSubmit}>Login</Button>
             </form>
             <div className='SignUpContainer'>
-                <Link className='SignUp' to='/register' >Sign up</Link>
+                <Link className='SignUp' to='/Contact-Manager/register' >Sign up</Link>
             </div>
         </div>
     );
