@@ -1,7 +1,6 @@
 import React, { Fragment, useContext } from 'react';
 import ContactContext from '../../Context/Contact/contactContext';
 import ContactItem from './ContactItem/ContactItem';
-import Modal from '../UI/Modal/Modal';
 import Spinner from '../UI/Spinner/Spinner';
 
 const Contacts = () => {
