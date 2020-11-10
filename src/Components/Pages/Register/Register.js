@@ -14,7 +14,7 @@ const Registration = (props) => {
 
     useEffect(() => {
         if (isAuthenticated) {
-            props.history.push('/');
+            props.history.push('/Contact-Manager/');
         }
 
         if (error == 'A network error (such as timeout, interrupted connection or unreachable host) has occurred.') {
